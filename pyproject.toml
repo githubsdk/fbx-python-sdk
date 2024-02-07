@@ -1,0 +1,30 @@
+[project]
+authors = [
+    { name = "Yves Boudreault", email = "yves.boudreault@autodesk.com" }
+]
+
+[build-system]
+requires = ["sip >=6.6.2, <6.7"] # Sip version 6.7.0 and higher are broken for handling template FbxArray
+
+# This commit probably broke the templates
+# 2022-07-17  Phil Thompson  <phil@riverbankcomputing.com>
+#
+#	* NEWS, sipbuild/generator/parser/instantiations.py:
+#	Fixed the instantiation of template values.
+#	[323d39a2d602] <6.6-maint>
+
+build-backend = "sipbuild.api"
+
+# Specify the PEP 566 metadata for the project.
+[tool.sip.metadata]
+name = "fbx"
+description = "Autodesk FBX Python Bindings"
+readme = "readme.txt"
+
+[tool.sip.project]
+sip-files-dir = "sip"
+
+# Configure the building of the fbx bindings.
+[tool.sip.bindings.fbx_module]
+include-dirs = ["../../../include"]
+library-dirs = ["."]
