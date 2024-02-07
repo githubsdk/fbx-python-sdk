@@ -1,3 +1,4 @@
+build from: FBX Python Bindings. version:2020.3.4
 build env:
 using vs2019
 
